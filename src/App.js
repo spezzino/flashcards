@@ -53,6 +53,22 @@ class App extends Component {
     );
   }
 
+  renderAnswer() {
+    if (this.state.isAnswerVisible) {
+      return (
+        <Text>
+          {this.state.flashcard.answer}
+        </Text>
+      );
+    }
+
+    return (
+      <Text>
+        Answer is hidden
+      </Text>
+    );
+  }
+
   render() {
     return (
       <View>
@@ -67,9 +83,7 @@ class App extends Component {
           </CardSection>
 
           <CardSection>
-            <Text>
-              Answer
-            </Text>
+            {this.renderAnswer()}
           </CardSection>
         </Card>
         <Button onPress={this.onShowAnswerPress()}>Show Answer</Button>
