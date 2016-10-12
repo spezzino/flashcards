@@ -6,6 +6,14 @@ import CardSection from './components/CardSection';
 import Button from './components/Button';
 
 class App extends Component {
+  onShowAnswerPress(){
+
+  }
+
+  onNextFlashcardPress(){
+
+  }
+
   render() {
     return (
       <View>
@@ -29,8 +37,8 @@ class App extends Component {
             </Text>
           </CardSection>
         </Card>
-        <Button>Show Answer</Button>
-        <Button>Next Flashcard</Button>
+        <Button onPress={this.onShowAnswerPress()}>Show Answer</Button>
+        <Button onPress={this.onNextFlashcardPress()}>Next Flashcard</Button>
       </View>
     );
   }
