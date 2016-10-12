@@ -11,7 +11,7 @@ const api = 'https://flashscards.herokuapp.com/api/flashcards/random';
 class App extends Component {
   state = {
     flashcard: {
-      topic: 'Topic',
+      topic: ['Topic'],
       question: 'Question',
       answer: 'answer'
     },
@@ -37,15 +37,21 @@ class App extends Component {
 
   }
 
+  renderTopic() {
+    return (
+      <Text>
+        {this.state.flashcard.topic.join()}
+      </Text>
+    );
+  }
+
   render() {
     return (
       <View>
         <Header headerText="Flashcards" />
         <Card>
           <CardSection>
-            <Text>
-              Topic
-            </Text>
+            {this.renderTopic()}
           </CardSection>
 
           <CardSection>
