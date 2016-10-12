@@ -19,13 +19,7 @@ class App extends Component {
   };
 
   componentWillMount() {
-    axios.get(api)
-      .then((response) => {
-        this.setState({ flashcard: response.data[0] });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.getFlashcard();
   }
 
   onShowAnswerPress() {
@@ -33,7 +27,17 @@ class App extends Component {
   }
 
   onNextFlashcardPress() {
+    this.getFlashcard();
+  }
 
+  getFlashcard() {
+    axios.get(api)
+      .then((response) => {
+        this.setState({ flashcard: response.data[0] });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   renderTopic() {
