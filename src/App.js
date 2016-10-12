@@ -33,7 +33,7 @@ class App extends Component {
   getFlashcard() {
     axios.get(api)
       .then((response) => {
-        this.setState({ flashcard: response.data[0] });
+        this.setState({ flashcard: response.data[0], isAnswerVisible: false });
       })
       .catch((error) => {
         console.log(error);
@@ -59,14 +59,14 @@ class App extends Component {
   renderAnswer() {
     if (this.state.isAnswerVisible) {
       return (
-        <Text>
+        <Text style={styles.answerText}>
           {this.state.flashcard.answer}
         </Text>
       );
     }
 
     return (
-      <Text>
+      <Text style={styles.answerText}>
         Answer is hidden
       </Text>
     );
@@ -95,5 +95,12 @@ class App extends Component {
     );
   }
 }
+
+const styles = {
+  answerText: {
+    height: 100,
+    flex: 1
+  }
+};
 
 export default App;
