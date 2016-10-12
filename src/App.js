@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import axios from 'axios';
 import Header from './components/Header';
 import Card from './components/Card';
 import CardSection from './components/CardSection';
 import Button from './components/Button';
 
+const api = 'https://flashscards.herokuapp.com/api/flashcards/random';
+
 class App extends Component {
-  onShowAnswerPress(){
+  componentWillMount() {
+    axios.get(api)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  onShowAnswerPress() {
 
   }
 
-  onNextFlashcardPress(){
+  onNextFlashcardPress() {
 
   }
 
@@ -43,8 +56,5 @@ class App extends Component {
     );
   }
 }
-
-const styles = {
-};
 
 export default App;
