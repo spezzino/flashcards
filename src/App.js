@@ -9,10 +9,20 @@ import Button from './components/Button';
 const api = 'https://flashscards.herokuapp.com/api/flashcards/random';
 
 class App extends Component {
+  state = {
+    flashcard: {
+      topic: 'Topic',
+      question: 'Question',
+      answer: 'answer'
+    },
+    isAnswerVisible: false
+  };
+
   componentWillMount() {
     axios.get(api)
       .then((response) => {
-        console.log(response);
+        this.setState({ flashcard: response.data[0] });
+        console.log(this.state);
       })
       .catch((error) => {
         console.log(error);
