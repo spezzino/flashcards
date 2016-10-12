@@ -45,6 +45,14 @@ class App extends Component {
     );
   }
 
+  renderQuestion() {
+    return (
+      <Text>
+        {this.state.flashcard.question}
+      </Text>
+    );
+  }
+
   render() {
     return (
       <View>
@@ -55,9 +63,7 @@ class App extends Component {
           </CardSection>
 
           <CardSection>
-            <Text>
-              Question
-            </Text>
+            {this.renderQuestion()}
           </CardSection>
 
           <CardSection>
