@@ -22,7 +22,6 @@ class App extends Component {
     axios.get(api)
       .then((response) => {
         this.setState({ flashcard: response.data[0] });
-        console.log(this.state);
       })
       .catch((error) => {
         console.log(error);
@@ -30,7 +29,7 @@ class App extends Component {
   }
 
   onShowAnswerPress() {
-
+    this.setState({ isAnswerVisible: true });
   }
 
   onNextFlashcardPress() {
@@ -86,8 +85,8 @@ class App extends Component {
             {this.renderAnswer()}
           </CardSection>
         </Card>
-        <Button onPress={this.onShowAnswerPress()}>Show Answer</Button>
-        <Button onPress={this.onNextFlashcardPress()}>Next Flashcard</Button>
+        <Button onPress={() => this.onShowAnswerPress()}>Show Answer</Button>
+        <Button onPress={() => this.onNextFlashcardPress()}>Next Flashcard</Button>
       </View>
     );
   }
